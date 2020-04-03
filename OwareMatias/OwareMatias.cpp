@@ -21,7 +21,6 @@ using namespace std;
 #define houseDrawnL1_10 "|   "
 #define houseDrawnR1_10 "   |"
 #define NHouses 12
-#define continuar "Continuar? 1 para sim"
 #define winPlayer1 "Jogador 1, parabéns pela vitória!"
 #define winPlayer2 "Jogador 2! Você ganhou o jogo."
 #define drawn "Empate! Bem jogado por ambos"
@@ -33,7 +32,6 @@ string houseP2 = "ABCDEF";
 void setcolor(string color){
     cout << color;
 }
-
 // Função para onde se imprime os valores no terminal. Pega do professor.
 void gotoxy(int x, int y){
     ostringstream oss;
@@ -70,7 +68,7 @@ void HousePrint(int pieces, char house, int x, int y){
     printf("%s\n\n",houseDrawn0and11 );
 }
 // Função para imprimir o tabuleiro inteiro com duas cores. Aproveito da troca de localização da função gotoxy para imprimir a função HousePrint em 12 lugares diferentes 
-void ShowBoard (int housesPieces[NHouses], int playerTurn) {
+void ShowBoard (int housesPieces[NHouses]) {
     int x = 60;
     int y = 0;
     int dir = -1;
