@@ -123,7 +123,7 @@ void Play() {
     int index;
     int nHouse;
     while (true){
-        ShowBoard(housesPieces, 1); //funçáo de mostrar o tabuleiro
+        ShowBoard(housesPieces); //funçáo de mostrar o tabuleiro
         printf("%s ", scoreMessage); //mostra o score no começo da jogada
         printf("%i\n", score[player]);
         index = askMoveHouse(player); // função de perguntar a jogada
@@ -140,7 +140,7 @@ void Play() {
             housesPieces[nHouse] = 0;
             nHouse--;
             if(nHouse<0){ // Torna o tabuleiro ciclico
-                nHouse = nHouse+12
+                nHouse = nHouse+12;
             }
         }
         if (score[0] == 24 && score[0] == score[1]){ // analiza um empate
