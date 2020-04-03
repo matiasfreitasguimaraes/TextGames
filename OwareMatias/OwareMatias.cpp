@@ -118,19 +118,17 @@ int askMoveHouse(int jogador){
 void Play() {
     clrscr();
     int housesPieces[NHouses] = {4,4,4,4,4,4,4,4,4,4,4,4};
-    bool gameCheck = true;
     int score[2] = {0,0};
     int player = 0;
     int index;
     int nHouse;
-    int conti;
-    while (gameCheck){
+    while (true){
         ShowBoard(housesPieces, 1); //funçáo de mostrar o tabuleiro
         printf("%s ", scoreMessage); //mostra o score no começo da jogada
         printf("%i\n", score[player]);
         index = askMoveHouse(player); // função de perguntar a jogada
         for (int i = 0; i < housesPieces[index]; i++){ //move as peças da casa escolhida
-            nHouse = (index+i+1)%NHouses;
+            nHouse = (index+i+1)%NHouses; // Torna o tabuleiro ciclico
             while (housesPieces[nHouse] > 11){
                 nHouse++;
             }
@@ -141,6 +139,9 @@ void Play() {
             score[player] = score[player] + housesPieces[nHouse];
             housesPieces[nHouse] = 0;
             nHouse--;
+            if(nHouse<0){ // Torna o tabuleiro ciclico
+                nHouse = nHouse+12
+            }
         }
         if (score[0] == 24 && score[0] == score[1]){ // analiza um empate
             printf("%s\n", drawn);
